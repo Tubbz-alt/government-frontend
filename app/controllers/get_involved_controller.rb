@@ -46,6 +46,7 @@ class GetInvolvedController < ApplicationController
   def retrieve_date_filtered_closed_consultations(months)
     closed_count = 0
 
+    # Has to be a better way of doing this, will fail to count more than 500 results
     cl_docs = retrieve_special({document_type: 'closed_consultation', per_page: 500, fields: ['details']})['results']
     cl_docs.sort_by! { |k| -k['details']['closing_date'] }.reverse!
 
