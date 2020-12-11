@@ -1,42 +1,48 @@
 .get-involved {
 
-  .govuk-grid-column-one-third-from-desktop{
-    padding: 0px;
+  // scss-lint:disable NestingDepth
+
+  .govuk-grid-column-one-third-from-desktop {
+    padding: 0;
   }
 
-  .govuk-grid-column-two-thirds-from-desktop{
-    padding: 0px;
+  .govuk-grid-column-two-thirds-from-desktop {
+    padding: 0;
   }
 
-  .govuk-grid-column-one-half-from-desktop{
-      padding: 0px;
+  .govuk-grid-column-one-half-from-desktop {
+    padding: 0;
   }
 
-  .index-list{
-          li {
-            list-style: none;
-            border-bottom: 1px solid $govuk-border-colour;
-            @include govuk-font(19);
-            padding-top: 7px;
-            padding-bottom: 3px;
-          }
-        }
+  .index-list {
+    li {
+      list-style: none;
+      border-bottom: 1px solid $govuk-border-colour;
+      @include govuk-font(19);
+      padding-top: 7px;
+      padding-bottom: 3px;
+    }
+  }
 
   h2 {
     @extend %govuk-heading-l;
     border-bottom: govuk-spacing(1) solid govuk-colour("black");
     margin-bottom: govuk-spacing(3);
+
     @include govuk-media-query($from: tablet) {
       margin-bottom: govuk-spacing(6);
     }
-    &#take-part {
+
+    .take-part {
       margin-bottom: 0;
+
       @include govuk-media-query($from: tablet) {
         margin-bottom: govuk-spacing(3);
       }
     }
-    &#elsewhere-on-the-web {
-      margin-top: govuk-spacing(6)*1.5;
+
+    .elsewhere-on-the-web {
+      margin-top: govuk-spacing(6) * 1.5;
     }
   }
 
@@ -63,8 +69,10 @@
       @include govuk-media-query($from: tablet) {
         float: left;
       }
+
       h3 {
         @include govuk-font(27, $weight: bold);
+
         font-weight: bold;
         padding: 0 govuk-spacing(3) 7px;
       }
@@ -76,16 +84,18 @@
         width: 50%;
       }
 
+      @include govuk-font(80, $weight: bold);
+
       display: block;
       margin: govuk-spacing(3);
-      @include govuk-font(80, $weight: bold);
       font-weight: bold;
       text-decoration: none;
 
       .context {
-        display: block;
         @include govuk-font(16);
-        margin-top:0;
+
+        display: block;
+        margin-top: 0;
         color: govuk-colour("black");
       }
 
@@ -94,16 +104,17 @@
     section {
       @include govuk-font(19);
       @include govuk-clearfix;
+
       clear: both;
       margin-bottom: govuk-spacing(6);
 
-      h3, h4 {
+      h3,
+      h4 {
         font-weight: bold;
       }
 
       .column {
         @include govuk-media-query($from: tablet) {
-          /*@include govuk-grid-column-two-thirds;*/
           float: left;
         }
       }
@@ -112,24 +123,28 @@
         list-style: none;
 
         @include govuk-media-query($from: tablet) {
-          float: left; 
+          float: left;
         }
-        
+
         .consultation-closing-soon {
           color: govuk-colour("white");
-          background-color: #2e3191;
+          background-color: govuk-colour("dark-blue");
           margin: govuk-spacing(6) govuk-spacing(3);
           padding: govuk-spacing(3) govuk-spacing(3) 0;
+
           h3 {
             @include govuk-font(27, $weight: bold);
             font-weight: bold;
             padding-bottom: govuk-spacing(1);
+
             @include govuk-media-query($from: tablet) {
               padding-bottom: govuk-spacing(1);
             }
           }
+
           .document-list {
             margin-top: -govuk-spacing(2);
+
             .document-row {
               float: none;
             }
@@ -140,12 +155,12 @@
               padding-bottom: govuk-spacing(2);
               font-weight: normal;
             }
+
             .attributes {
               @include govuk-clearfix;
               margin-top: govuk-spacing(2);
 
               li {
-
                 a {
                   color: govuk-colour("white");
 
@@ -156,19 +171,22 @@
               }
             }
           }
+
           @include govuk-media-query($from: tablet) {
             margin: govuk-spacing(3) govuk-spacing(3) govuk-spacing(6);
           }
         }
+
         .column {
           @include govuk-media-query($from: tablet) {
-            /*@include govuk-grid-column-one-half;*/
             float: left;
+
             @include govuk-if-ie8 {
               width: 49.99%;
             }
           }
         }
+
         .document-row {
           border: 0;
           padding: 5px 0 10px;
@@ -184,12 +202,15 @@
           h3 {
             font-weight: normal;
           }
+
           .attributes {
-            padding-top: govuk-spacing(1);
             @include govuk-font(14);
+            padding-top: govuk-spacing(1);
+
             li {
               padding-right: govuk-spacing(2);
               float: left;
+
               a {
                 font-weight: bold;
               }
@@ -198,38 +219,44 @@
         }
       }
 
-      &.start-a-petition, &.comment-follow {
+      .start-a-petition,
+      .comment-follow {
         p {
           padding-top: govuk-spacing(2);
         }
       }
 
-      &.more-ways {
+      .more-ways {
         .index-list {
           margin-top: govuk-spacing(3);
         }
+
         h3 {
           padding-top: 0;
         }
+
         .column {
           margin-top: govuk-spacing(1);
         }
       }
 
-      &.take-part-pages,
-      &.start-a-petition,
-      &.more-ways {
+      .take-part-pages,
+      .start-a-petition,
+      .more-ways {
         margin-bottom: 0;
+
         @include govuk-media-query($from: tablet) {
           margin-bottom: govuk-spacing(6);
         }
       }
 
-      &.respond-to-consultations {
+      .respond-to-consultations {
         margin-bottom: 0;
+
         h3 {
           padding-top: 0;
         }
+
         .column {
           margin-top: govuk-spacing(1);
         }
@@ -256,7 +283,5 @@
       margin: 0 govuk-spacing(3) govuk-spacing(6);
       padding-top: govuk-spacing(6);
     }
-
   }
-
 }
