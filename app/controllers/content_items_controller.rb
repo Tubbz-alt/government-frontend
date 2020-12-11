@@ -63,7 +63,6 @@ private
 
     if valid_page_ids.include?(page_id)
       @do_not_show_breadcrumbs = true
-
       render template: "histories/#{page_id}"
     else
       render plain: "Not found", status: :not_found
