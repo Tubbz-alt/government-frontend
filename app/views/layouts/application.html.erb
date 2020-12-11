@@ -47,8 +47,10 @@
       <% end %>
     <% end %>
 
-    <main role="main" id="content" class="<%= @content_item.schema_name.dasherize %>" lang="<%= I18n.locale %>">
-      <%= yield %>
+    <main role="main" id="content" class="government-frontend-content" lang="<%= I18n.locale %>">
+      <div id="page" class="<%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
+        <%= yield %>
+      </div>
     </main>
     <%= render 'govuk_publishing_components/components/feedback' %>
   </div>
