@@ -27,6 +27,8 @@
     <meta name="description" content="<%= strip_tags(@content_item.description) %>" />
   <% end %>
 
+  <%= cookieless_variant.analytics_meta_tag.html_safe %>
+
   <%= yield :extra_head_content %>
 </head>
 <body>
@@ -51,6 +53,10 @@
       <%= yield %>
     </main>
     <%= render 'govuk_publishing_components/components/feedback' %>
+
+    <% unless cookieless_variant.variant?('Z') %>
+      <meta data-variant="<%= cookieless_variant.variant_name %>" data-module="track-variant">
+    <% end %>
   </div>
 </body>
 </html>

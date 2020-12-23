@@ -366,6 +366,26 @@ class ContentItemsControllerTest < ActionController::TestCase
     assert_equal response.headers["Access-Control-Allow-Origin"], "*"
   end
 
+  %w[A B].each do |test_variant|
+    test "record cookieless hit when in variant #{test_variant}" do
+      with_variant CookielessAATest: test_variant.to_s do
+        content_item = content_store_has_schema_example("case_study", "case_study")
+
+        get :show, params: { path: path_for(content_item) }
+        assert_select "meta[@data-module=track-variant][@data-variant=#{test_variant}]"
+      end
+    end
+  end
+
+  test "not record cookieless hit when in variant Z" do
+    with_variant CookielessAATest: "Z" do
+      content_item = content_store_has_schema_example("case_study", "case_study")
+
+      get :show, params: { path: path_for(content_item) }
+      assert_select "meta[data-module=track-variant]", false
+    end
+  end
+
   def path_for(content_item, locale = nil)
     base_path = content_item["base_path"].sub(/^\//, "")
     base_path.gsub!(/\.#{locale}$/, "") if locale
